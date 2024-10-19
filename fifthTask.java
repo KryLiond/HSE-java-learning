@@ -1,22 +1,18 @@
- class TelephoneSubscriber {
-    // Свойства
-    private String fullName;   // ФИО абонента
-    private String address;    // Адрес
-    private String phoneNumber; // Телефон
-    private int month;         // Месяц
-    private int year;          // Год
-    private int minutes;       // Количество минут
-    private double costPerMinute; // Стоимость за минуту
+  class TelephoneSubscriber  {
+    private String fullName;
+    private String address;
+    private String phoneNumber;
+    private int month;
+    private int year;
+    private int minutes;
+    private double costPerMinute;
 
-    // Конструктор
-    public TelephoneSubscriber(String fullName, String address, String phoneNumber, int month, int year, int minutes, double costPerMinute) {
+    public TelephoneSubscriber (String fullName, String address, String phoneNumber, int month, int year) {
         this.fullName = fullName;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.month = month;
         this.year = year;
-        this.minutes = minutes;
-        this.costPerMinute = costPerMinute;
     }
 
     // Геттеры и сеттеры
@@ -76,24 +72,25 @@
         this.costPerMinute = costPerMinute;
     }
 
-    // Метод для расчета общей стоимости
+    // Метод для вычисления общей стоимости
     public double calculateTotalCost() {
         return minutes * costPerMinute;
     }
 
-    // Перекрытый метод toString()
     @Override
     public String toString() {
         return String.format("Абонент: %s\nАдрес: %s\nТелефон: %s\nДата: %02d/%d\nКоличество минут: %d\nСтоимость за минуту: %.2f\nОбщая стоимость: %.2f",
                 fullName, address, phoneNumber, month, year, minutes, costPerMinute, calculateTotalCost());
     }
+}
 
-    // Правильная сигнатура метода main
+public class fifthTask {
     public static void main(String[] args) {
-        // Создание объекта абонента
-        TelephoneSubscriber subscriber = new TelephoneSubscriber("Иванов Иван Иванович", "г. Москва, ул. Ленина, д. 5", "8-123-456-7890", 10, 2024, 150, 2.5);
+        TelephoneSubscriber subscriber = new TelephoneSubscriber("Абобьев Олег Разумовский", "г. Нижние Серги, ул. Победы, д. 33", "8 300 145 21 40", 10, 2024);
 
-        // Вывод полной информации об объекте
+        subscriber.setMinutes(100);
+        subscriber.setCostPerMinute(1.75);
+
         System.out.println(subscriber);
     }
 }
